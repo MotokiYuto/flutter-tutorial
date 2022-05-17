@@ -1,3 +1,4 @@
+import 'package:first_project/basicWidget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: <String, WidgetBuilder>{
+        '/basic-widget-page': (BuildContext context) => new BasicWidgetPage()
+      }
     );
   }
 }
@@ -102,6 +106,13 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            TextButton(
+              child: Text("Basic Widget を確認"),
+              onPressed: (){
+                // （1） 指定した画面に遷移する
+                Navigator.of(context).pushNamed("/basic-widget-page");
+              }
+            )
           ],
         ),
       ),
